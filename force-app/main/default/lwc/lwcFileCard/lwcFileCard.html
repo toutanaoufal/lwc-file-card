@@ -1,0 +1,15 @@
+<template>
+    <ul class="slds-grid slds-grid_pull-padded">
+        <template if:true={loaded}>
+            <template for:each={files} for:item="file" for:index="index">
+                <c-preview-file-card
+                    key={file.index}
+                    file={file}
+                    record-id={recordId}
+                    thumbnail={file.thumbnailFileCard}
+                >
+                </c-preview-file-card>
+            </template>
+        </template>
+    </ul>
+</template>

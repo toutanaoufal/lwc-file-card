@@ -1,0 +1,45 @@
+<template>
+    <template if:true={file}>
+        <li class="slds-p-horizontal_xx-small slds-size_1-of-2 slds-medium-size_1-of-3">
+            <div class="slds-file slds-file_card slds-has-title" style="width:12rem">
+                <figure>
+                  <a href="javascript:void()" onclick={handlePreview} data-id={file.ContentDocumentId} class="slds-file__crop">
+                    <span class="slds-assistive-text">Preview: </span>
+                    <img src={thumbnail} alt={file.Title} />
+                  </a>
+                  <figcaption class="slds-file__title slds-file__title_card">
+                    <div class="slds-media slds-media_small slds-media_center">
+                      <div class="slds-media__figure slds-line-height_reset">
+                        <lightning-icon 
+                          class="slds-icon_container"
+                          icon-name={iconName} 
+                          alternative-text={file.Title} 
+                          size="xx-small" 
+                          title={file.Title}
+                        >
+                        <span class="slds-assistive-text">{file.Title}.{file.Extension}</span>
+                        </lightning-icon>
+                      </div>
+                      <div class="slds-media__body">
+                        <span class="slds-file__text slds-truncate" title={file.Title}>{file.Title}.{file.Extension}</span>
+                      </div>
+                    </div>
+                  </figcaption>
+                </figure>
+                <div class="slds-file__actions-menu">
+                    <div class="slds-button-group" role="group">
+                      <a href={file.Url} class="slds-button slds-button_icon slds-button_icon slds-button_icon-x-small" title="Download">
+                        <lightning-icon 
+                          icon-name="utility:download" 
+                          alternative-text="download" 
+                          size="xx-small" 
+                          title="download"
+                        ></lightning-icon>
+                        <span class="slds-assistive-text">Download</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </template>
+</template>
